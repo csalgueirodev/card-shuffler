@@ -7,9 +7,6 @@ const units = "rem";
 let stopAnimation = false;
 
 const board = document.querySelector("#board")
-const shuffleBtn = document.querySelector(".btn[data-action='shuffle']")
-const dealBtn = document.querySelector(".btn[data-action='deal']")
-const resetBtn = document.querySelector(".btn[data-action='reset']")
 
 createAllCards()
 cards = [...document.querySelectorAll(".card")]
