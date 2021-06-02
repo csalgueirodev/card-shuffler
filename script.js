@@ -87,6 +87,7 @@ function deal(cards) {
 }
 
 function reset(cards) {
+    deal.execId++
     const len = cards.length
     cards[0].classList.add("topCard")
     cards.forEach((card, i) => {
@@ -96,6 +97,7 @@ function reset(cards) {
 }
 
 function shuffle(cards) {
+    deal.execId++
     for (let i = (cards.length - 1); i > 0; i--) {
         const newIndex = Math.floor(Math.random() * (i + 1))
         const oldValue = cards[newIndex]
