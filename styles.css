@@ -1,0 +1,97 @@
+*,*:after,*:before{
+    box-sizing:border-box;
+}
+:root{
+    --border-radius: 5px;
+}
+body{
+    margin: 1%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#board{
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    background-color: green;
+    border: 2px solid #fff;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+    border-radius: var(--border-radius);
+
+    display:flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    float: left;
+    position: relative;
+}
+.card{
+    width: 6rem;
+    height: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #000;
+    border-radius: var(--border-radius);
+    background-color: #fff;
+    font-size: 6rem;
+    margin: 0.2rem;
+
+    transform: translate(0,0);
+    transition: all 600ms ease-in-out;
+}
+.card[data-suit="♥"],
+.card[data-suit="♦"] {
+    color:red;
+}
+.card[data-suit="♣"],
+.card[data-suit="♠"] {
+    color:black;
+}
+.card::before,
+.card::after
+{
+    top: 0;
+    left: 0;
+    text-align: center;
+    font-size: 1rem;
+    content: attr(data-name);
+    position:absolute;
+    width: 1rem;
+    padding: 2px;
+    line-height: 0.9rem;
+}
+.card::after{
+    top: auto;
+    left: auto;
+    bottom: 0;
+    right: 0;
+    transform: rotate(-180deg);
+}
+.card.red{
+    color: red;
+}
+.card.black{
+    color: black;
+}
+.card:hover{
+    border-color: blue;
+    cursor: default;
+}
+.btn-group{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.btn-group .btn{
+    background-color: red;
+    color: #fff;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin: 0.5rem;
+}
