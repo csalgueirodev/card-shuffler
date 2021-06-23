@@ -2,7 +2,7 @@ const numbers = ["2", "3", "4", "5", "6", "7", "8", "9", "J", "Q", "K", "A"];
 const suits = ["♠", "♥", "♣", "♦"];
 const offset = { width: 6, height: 10 }
 const spacing = 0.5;
-const cardsByLine = 12;
+const cardsPerLine = 12;
 const units = "rem";
 let stopAnimation = false;
 
@@ -58,7 +58,8 @@ function deal(cards) {
     var execId = deal.execId = (deal.execId || 0) + 1;
     let line = 0;
     let left = 0;
-    let top = 0;
+    let initialLeft = offset.width / 2;
+    let top = offset.height * (-1) / 2;
     let cardsDealed = 0;
     for (let i = 0; i < cards.length; i++) {
         (function (card, idx) {
@@ -69,9 +70,9 @@ function deal(cards) {
                     return false;
                 }
                 card.style.zIndex = cardsDealed
-                if (cardsDealed % cardsByLine == 0) {
+                if (cardsDealed % cardsPerLine == 0) {
                     line++;
-                    left = spacing
+                    left = initialLeft + spacing
                     top += offset.height + spacing
                 } else {
                     left += offset.width + spacing
@@ -104,4 +105,3 @@ function shuffle(cards) {
     reset(cards)
     return cards
 }
-
